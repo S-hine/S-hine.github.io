@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>网页人机猜拳</title>
+		<style>
+			#a {
+				margin: 0 auto;
+				width: 350px;
+				height: 195px;
+				background-color: #00FFFF;
+				margin-top: 50px;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+
+			#b {
+				margin: 0 auto;
+				width: 200px;
+				height: 120px;
+				background-color: pink;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#x {
+				width: 350px;
+				height: 50px;
+				display: flex;
+				background-color: cornflowerblue;
+				justify-content: space-around;
+				align-items: center;
+			}
+
+			.gm {
+				width: 80px;
+				height: 40px;
+				background-color: #66ffcc;
+				border-radius: 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.gm:hover{
+				cursor:pointer;
+			}
+			
+			#i {
+				width: 350px;
+				height: 25px;
+				background-color: gainsboro;
+				color: #000000;
+				display: flex;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a">
+			<div id="b">
+				<h2 id="me">玩家</h2>
+				<h1>&nbsp;:&nbsp</h1>
+				<h2 id="bt">人机</h2>
+			</div>
+			<div id="i"><text>结果:</text></div>
+			<div id="x">
+				<div class="gm" id="jd">
+					<h3>石头</h3>
+				</div>
+				<div class="gm" id="st">
+					<h3>剪刀</h3>
+				</div>
+				<div class="gm" id="bu">
+					<h3>布</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		//规定1是石头2是剪刀3是布
+		document.getElementById("jd").onclick = function(){
+			if(bot()==1){
+				document.getElementById("me").innerHTML="石头";
+				document.getElementById("bt").innerHTML="石头";
+				document.getElementById("i").innerHTML="结果:平局"
+			}else if(bot()==2){
+				document.getElementById("me").innerHTML="石头";
+				document.getElementById("bt").innerHTML="剪刀";
+				document.getElementById("i").innerHTML="结果:玩家胜"
+			}else if(bot()==3){
+				document.getElementById("me").innerHTML="石头";
+				document.getElementById("bt").innerHTML="布";
+				document.getElementById("i").innerHTML="结果:人机胜"
+			}
+		}
+		document.getElementById("st").onclick = function(){
+			if(bot()==1){
+				document.getElementById("me").innerHTML="剪刀";
+				document.getElementById("bt").innerHTML="石头";
+				document.getElementById("i").innerHTML="结果:人机胜"
+			}else if(bot()==2){
+				document.getElementById("me").innerHTML="剪刀";
+				document.getElementById("bt").innerHTML="剪刀";
+				document.getElementById("i").innerHTML="结果:平局"
+			}else if(bot()==3){
+				document.getElementById("me").innerHTML="剪刀";
+				document.getElementById("bt").innerHTML="布";
+				document.getElementById("i").innerHTML="结果:玩家胜"
+			}
+		}
+		document.getElementById("bu").onclick = function(){
+			if(bot()==1){
+				document.getElementById("me").innerHTML="布";
+				document.getElementById("bt").innerHTML="石头";
+				document.getElementById("i").innerHTML="结果:玩家胜"
+			}else if(bot()==2){
+				document.getElementById("me").innerHTML="布";
+				document.getElementById("bt").innerHTML="剪刀";
+				document.getElementById("i").innerHTML="结果:人机胜"
+			}else if(bot()==3){
+				document.getElementById("me").innerHTML="布";
+				document.getElementById("bt").innerHTML="布";
+				document.getElementById("i").innerHTML="结果:平局"
+			}
+		}
+		function bot (){
+			var getbot = Math.floor(Math.random()*3+1);
+			return getbot;
+		}
+	</script>
+</html>
